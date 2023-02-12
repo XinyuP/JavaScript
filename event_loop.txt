@@ -1,0 +1,72 @@
+JavaScript: single-threaded non-blocking asynchronous concurrent language
+V8
+
+one thread == one call stack == one thing at a time 
+
+
+call stack
+event loop
+callback queue
+apis
+
+
+asynchronous callback
+
+
+concurrency & the event loop
+
+
+setTimeout is an API provided to us by the browser
+
+The reason we can do things concurrently is that the browser is more than just the Runtime
+The  JavaScript Runtime can only do one thing at a time 
+But the browser gives us other things(Web APIs) 
+    DOM(document)
+    ajax(XMLHttpRequest)
+    setTimeout
+These are effectively threads that you can make calls To
+
+
+
+
+stack    webapi
+
+event loop
+
+task queue
+
+
+Any of the webapis when they are done, they push the callback onto the task queue 
+
+
+event loop is the simplist little piece in the whole equation
+it has one very simple job -- look at the stack and look at the task queue
+
+--- if the stack is empty, it takes the first thing on the queue and pushes it onto the stack which effectively runs it
+
+
+
+EX. setTimeout at 0
+
+complete immediately and push it on to the queue
+
+the event loop has to wait till the stack is clear before it can push the callback on to the stack
+
+it is like deferring the execution of code to the end of stack or until the stack is clear 
+
+
+
+
+console.log('Hi');
+// ajax request
+$.get('url), function cb(data) {
+    console.log(data);
+});
+
+console.log('JSConfEU');
+
+the code for running AJAX request does not live in JavaScript Runtime
+but in the browser as a web api, so we spin up XHR webapi with a callback in the URL
+
+
+
