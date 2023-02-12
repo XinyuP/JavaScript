@@ -1,0 +1,78 @@
+<html>
+<head>
+<title>Discussion 5 Demo</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+<script>
+
+// this is JQuery but conceptually, we're changing the content
+contentcount = 0;
+$(document).ready(function() {
+$("#buttonOne").click(function(){
+    contentcount++;
+    // notice the use of TRIPLE equal signs here
+    if (contentcount === 1) {
+        $("#contentcount").html("Clicked " + contentcount + " time.")
+    }
+    else {
+        $("#contentcount").html("Clicked " + contentcount + " times.")
+    }
+});
+
+// we're changing the style
+document.getElementById("makeBigger").addEventListener("mouseover", mouseover);
+function mouseover() {
+    document.getElementById("makeBigger").style.fontSize="xx-large";
+    document.getElementById("makeBigger").style.color="red";
+}
+
+document.getElementById("makeBigger").addEventListener("mouseleave", mouseleave);
+function mouseleave() {
+    document.getElementById("makeBigger").style.fontSize="medium";
+    document.getElementById("makeBigger").style.color="black";
+}
+
+// we're removing something from the DOM
+document.getElementById("buttonTwo").addEventListener("click", click);
+function click() {
+    var element = document.getElementById("deleteMe");
+    element.parentNode.removeChild(element);
+}
+
+});
+
+
+
+$(document).ready(function() {
+$("#buttonThree").click(function(){
+    // notice the use of TRIPLE equal signs here
+        $("#shrinkMe").css('fontSize', 'xx-small');
+  });
+});
+
+
+</script>
+
+<style>
+    
+</style>
+
+</head>
+<body>
+<div>
+    <h1>Change HTML content.</h1>
+    <button id="buttonOne" type="button">Change HTML content.</button><p id="contentcount">Clicked 0 times.</p>
+</div>
+<div id="deleteMe">
+    <h1>Change style by hovering.</h1>
+    <p id="makeBigger">Hover over me!</p>
+</div>
+<div>
+    <h1>Change HTML DOM once - refresh if you want to restore page to original settings.</h1>
+    <button id="buttonTwo" type="button">Click to change HTML DOM structure.</button>
+</div>
+<div>
+    <h1 id="shrinkMe">For discussion participation: write the JavaScript code to set the size of this header to "xx-small" when the button below is clicked.</h1>
+    <button id="buttonThree" type="button">Click to shrink the header above.</button>
+</div>
+</body>
+</html>

@@ -26,3 +26,6 @@ document.addEventListener('click', function () {
 
 
 document.addEventListener('click', () => console.log('Click'))
+
+
+// arrow functions shorthand for Anonymous functions
