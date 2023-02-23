@@ -87,3 +87,20 @@ $('#myButton').click(function () {
 
 
 
+$(document).ready() 
+// is a method in jQuery that allows you to run code as soon as the DOM(Document Object Model) is ready and loaded.
+
+$(document).ready(function () {
+  // code to run when the DOM is ready
+});
+// This method is used to ensure that the code inside the function is executed only after the DOM is fully loaded,
+// and all the elements of the HTML page are available to the JavaScript code.
+
+// to ensure that your jQuery code executes only after the HTML document has been fully loaded and is ready to be manipulated by JavaScript.
+
+
+
+// It is also common to use the shorthand version of $(document).ready() which is:
+$(function () {
+  // code to run when the DOM is ready
+});
